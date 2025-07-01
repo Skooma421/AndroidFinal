@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidFinal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+</resources>

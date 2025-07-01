@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.androidfinal.UI.home.screen.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_menu"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_home_to_spicy"
+            app:destination="@id/spicyFragment" />
+        <action
+            android:id="@+id/action_home_to_salty"
+            app:destination="@id/saltyFragment" />
+        <action
+            android:id="@+id/action_home_to_sweet"
+            app:destination="@id/sweetFragment" />
+        <action
+            android:id="@+id/action_home_to_recipe"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.androidfinal.UI.menu.screen.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menu_to_recipe"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.androidfinal.UI.recipe.screen.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" />
+    <fragment
+        android:id="@+id/saltyFragment"
+        android:name="com.example.androidfinal.UI.categories.salty.screen.SaltyFragment"
+        android:label="fragment_salty"
+        tools:layout="@layout/fragment_salty" >
+        <action
+            android:id="@+id/action_salty_to_recipe"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/spicyFragment"
+        android:name="com.example.androidfinal.UI.categories.spicy.screen.SpicyFragment"
+        android:label="fragment_spicy"
+        tools:layout="@layout/fragment_spicy" >
+        <action
+            android:id="@+id/action_spicy_to_recipe"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sweetFragment"
+        android:name="com.example.androidfinal.UI.categories.sweet.screen.SweetFragment"
+        android:label="fragment_sweet"
+        tools:layout="@layout/fragment_sweet" >
+        <action
+            android:id="@+id/action_sweet_to_recipe"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.androidfinal.UI.register.screen.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_register_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.androidfinal.UI.login.screen.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

@@ -23,7 +23,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
         super.onViewCreated(view, savedInstanceState)
         bindViewActionListener()
     }
-
+//test
     override fun bindViewActionListener() {
         binding.apply {
             emailField.addTextChangedListener { validateFields() }

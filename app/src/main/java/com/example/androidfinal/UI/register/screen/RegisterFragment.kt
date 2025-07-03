@@ -1,47 +1,39 @@
 package com.example.androidfinal.UI.register.screen
 
-import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
-import android.view.View
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.androidfinal.BaseFragment
 import com.example.androidfinal.R
 import com.example.androidfinal.UI.register.vm.RegisterViewModel
 import com.example.androidfinal.databinding.FragmentRegisterBinding
+import com.example.androidfinal.utils.SessionManager
 
 class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterBinding::inflate) {
 
-    private val viewModel: RegisterViewModel by viewModels {
-        object : ViewModelProvider.AndroidViewModelFactory(requireActivity().application) {}
-    }
+    private val viewModel: RegisterViewModel by viewModels()
+    private lateinit var sessionManager: SessionManager
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        bindViewActionListener()
-    }
-//test2
     override fun bindViewActionListener() {
+
+        sessionManager = SessionManager(requireContext())
+
         binding.apply {
-            emailField.addTextChangedListener { validateFields() }
-            passwordField.addTextChangedListener { validateFields() }
-            passwordRepeatField.addTextChangedListener { validateFields() }
+
+            listOf(emailField, passwordField, passwordRepeatField).forEach { editText ->
+                editText.addTextChangedListener { validateFields() }
+            }
 
             registerButton.setOnClickListener {
                 val email = emailField.text.toString().trim()
                 val password = passwordField.text.toString().trim()
                 val passwordRepeat = passwordRepeatField.text.toString().trim()
 
-                if (email.isEmpty() || password.isEmpty() || passwordRepeat.isEmpty()) {
+                val inputs = listOf(email, password, passwordRepeat)
+                if (inputs.any { it.isBlank() }) {
                     showMessage("Please fill in all fields")
-                    return@setOnClickListener
-                }
-
-                if (!isValidPassword(password)) {
-                    showMessage("Password must be at least 6 characters")
                     return@setOnClickListener
                 }
 
@@ -50,8 +42,16 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     return@setOnClickListener
                 }
 
+                if (!isValidPassword(password)) {
+                    showMessage("Password not strong enough")
+                    return@setOnClickListener
+                }
+
                 registerButton.isEnabled = false
-                viewModel.register(email, password)
+                viewModel.register(email, password) { emailSaved, passwordSaved ->
+                    sessionManager.saveUser(emailSaved, passwordSaved)
+                    sessionManager.setLoginStatus(true)
+                }
             }
 
             arrow.setOnClickListener {
@@ -88,10 +88,11 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     showMessage("Registration successful")
                     findNavController().navigate(R.id.action_register_to_login)
                 }
+                registerButton.isEnabled = validateFieldsState()
             }
 
             viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
-                if (!error.isNullOrEmpty()) {
+                if (error != null && error.isEmpty()) {
                     registerButton.isEnabled = true
                     showMessage(error)
                 }
@@ -100,16 +101,28 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
     }
 
     private fun validateFields() {
-        val email = binding.emailField.text?.toString()?.trim() ?: ""
-        val password = binding.passwordField.text?.toString()?.trim() ?: ""
-        val passwordRepeat = binding.passwordRepeatField.text?.toString()?.trim() ?: ""
+        val fields = listOf(
+            binding.emailField.text?.toString()?.trim(),
+            binding.passwordField.text?.toString()?.trim(),
+            binding.passwordRepeatField.text?.toString()?.trim()
+        )
+        binding.registerButton.isEnabled = fields.none {
+            it.isNullOrEmpty()
+        }
+    }
 
-        binding.registerButton.isEnabled =
-            email.isNotEmpty() && password.isNotEmpty() && passwordRepeat.isNotEmpty()
+    private fun validateFieldsState(): Boolean {
+        val fields = listOf(
+            binding.emailField.text?.toString()?.trim(),
+            binding.passwordField.text?.toString()?.trim(),
+            binding.passwordRepeatField.text?.toString()?.trim(),
+        )
+        return fields.none { it.isNullOrEmpty() }
     }
 
     private fun isValidPassword(password: String): Boolean {
-        return password.length >= 6
+        val passwordPattern = "^(?=.*[0-9])(?=.*[a-zA-Z]).{6,}$".toRegex()
+        return passwordPattern.matches(password)
     }
 
     private fun showMessage(message: String) {

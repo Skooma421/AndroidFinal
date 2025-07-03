@@ -1,46 +1,36 @@
 package com.example.androidfinal.UI.register.vm
 
-import android.app.Application
-import android.content.Context
-import android.net.http.HttpException
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class RegisterViewModel(application: Application) : AndroidViewModel(application) {
+class RegisterViewModel : ViewModel() {
 
-    val registerSuccess = MutableLiveData<Boolean>()
-    val errorMessage = MutableLiveData<String?>()
-    val isLoading = MutableLiveData<Boolean>()
+    private val _registerSuccess = MutableLiveData<Boolean>()
+    val registerSuccess: LiveData<Boolean> get() = _registerSuccess
 
-    fun register(email: String, password: String) {
-        isLoading.value = true
+    private val _errorMessage = MutableLiveData<String>()
+    val errorMessage: LiveData<String> get() = _errorMessage
 
+    fun register(email: String, password: String, saveUser: (String, String) -> Unit) {
         viewModelScope.launch {
-            delay(500)
-
-            val sharedPref = getApplication<Application>()
-                .getSharedPreferences("auth", Context.MODE_PRIVATE)
-
-            val existingEmail = sharedPref.getString("registered_email", null)
-
-            if (existingEmail == email) {
-                errorMessage.value = "Account with this email already exists"
-                registerSuccess.value = false
-            } else {
-                sharedPref.edit()
-                    .putString("registered_email", email)
-                    .putString("registered_password", password)
-                    .apply()
-                registerSuccess.value = true
-                errorMessage.value = null
+            try {
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    _errorMessage.value = "Invalid email format"
+                    return@launch
+                }
+                saveUser(email, password)
+                _registerSuccess.value = true
+            } catch (e: IOException) {
+                _errorMessage.value = "Network error: ${e.message}"
+            } catch (e: Exception) {
+                _errorMessage.value = "Registration failed: ${e.message}"
             }
-
-            isLoading.value = false
         }
+
+
     }
 }

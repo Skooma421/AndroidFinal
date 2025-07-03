@@ -4,18 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/register_background"
     tools:context=".UI.register.screen.RegisterFragment">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:elevation="8dp"
-        android:src="@drawable/arrow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/topDecor"
@@ -24,14 +15,35 @@
         android:src="@drawable/img"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:alpha="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:elevation="15dp"
+        android:src="@drawable/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/createAccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="25dp"
         android:letterSpacing="0.02"
         android:text="@string/create_account"
-        android:textColor="@color/black"
+        android:textColor="#2E007C"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +64,7 @@
         android:id="@+id/emailField"
         android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/rounded_corners"
         android:elevation="7dp"
         android:hint="Email"
@@ -146,13 +158,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerButton"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="#BA7FF2"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#D7B8FF"
         android:text="@string/register"
-        android:textColor="@color/white"
+        android:textColor="#4D017A"
+        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/passwordRepeatField"
@@ -164,6 +177,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="-20dp"
         android:layout_marginBottom="-110dp"
+        android:alpha="0.8"
         android:src="@drawable/img_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,14 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background=""
     tools:context=".UI.userProfile.screen.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#FFFFFF"
+        android:alpha="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/topDecor"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:src="@drawable/img"
+        android:alpha="0.1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/profileTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="24dp"
+        android:letterSpacing="0.02"
+        android:text="Profile"
+        android:textColor="#2E007C"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userPhoto"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileTitleText">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/userImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/profile_pic"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.01"
+        android:text="user.email@example.com"
+        android:textColor="#2E007C"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userPhoto"
+        android:layout_marginTop="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/favoritesSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_white_background"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/userEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/favoriteRecipesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favrecepies"
+            android:textColor="#2E007C"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewFavoritesButton"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/button_rounded_corners"
+            android:backgroundTint="#D7B8FF"
+            android:letterSpacing="0.1"
+            android:text="View"
+            android:textColor="#4D017A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/favoriteRecipesTitle"
+            app:layout_constraintTop_toTopOf="@id/favoriteRecipesTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutButton"
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#673AB7"
+        android:text="@string/logout"
+        android:textColor="#FFFFFF"
+        android:letterSpacing="0.05"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favoritesSection" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="299dp"
+        android:layout_height="782dp"
+        android:layout_marginStart="-20dp"
+        android:alpha="0.2"
+        android:src="@drawable/img_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="462dp"
+        android:layout_height="918dp"
+        android:layout_marginStart="20dp"
+        android:alpha="0.1"
+        android:scaleX="-1"
+        android:src="@drawable/img_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

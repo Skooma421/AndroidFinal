@@ -16,6 +16,9 @@ class SessionManager(context: Context) {
         }
     }
 
+    fun getEmail(): String? = prefs.getString("email", null)
+    fun getPassword(): String? = prefs.getString("password", null)
+
     fun getUser(): Pair<String?, String?> {
         val email = prefs.getString("email", null)
         val password = prefs.getString("password", null)

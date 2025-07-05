@@ -10,18 +10,18 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
         android:alpha="0.2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/topDecor"
         android:layout_width="match_parent"
-        android:alpha="0"
         android:layout_height="125dp"
+        android:alpha="0"
         android:src="@drawable/img"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,9 +112,9 @@
         android:layout_marginTop="55dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
+        android:letterSpacing="0.05"
         android:text="@string/login"
         android:textColor="#4D017A"
-        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/passwordField"

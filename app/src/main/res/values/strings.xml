@@ -8,7 +8,10 @@
     <string name="register">Register</string>
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
-    <string name="favrecepies">Favorite Recipes</string>
+    <string name="favRecipes">Favorite Recipes</string>
+    <string name="view">View</string>
+    <string name="user_email_example_com">user.email@example.com</string>
+    <string name="profile">Profile</string>
     <string name="email">Email</string>
 
 

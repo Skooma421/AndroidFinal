@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".UI.categories.salty.screen.SaltyFragment">
 
-
     <ImageView
         android:id="@+id/backArrow"
         android:layout_width="40dp"

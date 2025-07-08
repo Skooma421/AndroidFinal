@@ -10,4 +10,12 @@
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
     <string name="favrecepies">Favorite Recipes</string>
+    <string name="card">card</string>
+    <string name="test">test</string>
+    <string name="difficulty_easy">Difficulty: Easy</string>
+    <string name="_4_5">⭐ 4.5</string>
+    <string name="title">Title</string>
+    <string name="back">back</string>
+    <string name="spicy">Spicy</string>
+    <string name="sweet">Sweet</string>
 </resources>

@@ -37,6 +37,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                 viewModel.logic(email, password, sessionManager)
             }
 
+            registerButton.setOnClickListener{
+                findNavController().navigate(R.id.action_login_to_register)
+            }
+
             viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
                 if (success == true) {
                     showMessage("Login successful")

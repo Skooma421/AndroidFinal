@@ -58,6 +58,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 findNavController().navigate(R.id.action_register_to_login)
             }
 
+            loginButton.setOnClickListener{
+                findNavController().navigate(R.id.action_register_to_login)
+            }
+
             eyeIcon0.setOnClickListener {
                 passwordField.transformationMethod =
                     if (passwordField.transformationMethod == null)

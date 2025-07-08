@@ -17,11 +17,11 @@
         android:padding="8dp"
         android:src="@drawable/back_arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvSpicyHeader"
-        app:layout_constraintBottom_toBottomOf="@id/tvSpicyHeader" />
+        app:layout_constraintTop_toTopOf="@id/tvSaltyHeader"
+        app:layout_constraintBottom_toBottomOf="@id/tvSaltyHeader" />
 
     <TextView
-        android:id="@+id/tvSpicyHeader"
+        android:id="@+id/tvSaltyHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Salty"
@@ -42,7 +42,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvSpicyHeader"
+        app:layout_constraintTop_toBottomOf="@id/tvSaltyHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

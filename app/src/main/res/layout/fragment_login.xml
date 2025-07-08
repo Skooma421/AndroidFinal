@@ -120,6 +120,22 @@
         app:layout_constraintStart_toStartOf="@id/passwordField"
         app:layout_constraintTop_toBottomOf="@id/passwordField" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/registerButton"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#D7B8FF"
+        android:text="@string/register"
+        android:textColor="#4D017A"
+        android:letterSpacing="0.05"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/loginButton"
+        app:layout_constraintStart_toStartOf="@id/loginButton"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="299dp"
         android:layout_height="782dp"

@@ -159,7 +159,7 @@
         android:id="@+id/registerButton"
         android:layout_width="240dp"
         android:layout_height="55dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
         android:text="@string/register"
@@ -170,6 +170,22 @@
         app:layout_constraintEnd_toEndOf="@id/passwordRepeatField"
         app:layout_constraintStart_toStartOf="@id/passwordRepeatField"
         app:layout_constraintTop_toBottomOf="@id/passwordRepeatField" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginButton"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#D7B8FF"
+        android:text="@string/login"
+        android:textColor="#4D017A"
+        android:letterSpacing="0.05"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/registerButton"
+        app:layout_constraintStart_toStartOf="@id/registerButton"
+        app:layout_constraintTop_toBottomOf="@id/registerButton"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"

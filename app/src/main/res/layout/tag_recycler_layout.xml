@@ -8,6 +8,6 @@
         android:id="@+id/titleId"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_rounded_corners" />
+        android:background="@drawable/tag_recycler_rounded" />
 
 </LinearLayout>

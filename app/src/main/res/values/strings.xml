@@ -27,4 +27,6 @@
     <string name="favrecepies">Favorite Recipes</string>
     <string name="categories">Categories</string>
     <string name="recipe_types">Recipe types</string>
+    <string name="home">Home</string>
+    <string name="what_would_you_like_to_eat">What would you like to eat?</string>
 </resources>

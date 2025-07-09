@@ -1,5 +1,6 @@
 package com.example.androidfinal.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -23,13 +24,14 @@ class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(MenuDiffUtil
 
         private lateinit var model: Recipe
 
+        @SuppressLint("SetTextI18n")
         fun bind() {
             model = currentList[adapterPosition]
 
             with(binding) {
                 Glide.with(root.context).load(model.image).into(imageItem)
                 itemTitle.text = model.name
-                difficulty.text = model.difficulty
+                difficulty.text = "Difficulty: ${model.difficulty}"
                 rating.text = model.rating.toString()
                 root.setOnClickListener {
                     onItemClick?.invoke(model.id!!)

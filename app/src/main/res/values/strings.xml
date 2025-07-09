@@ -10,4 +10,6 @@
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
     <string name="favrecepies">Favorite Recipes</string>
+    <string name="categories">Categories</string>
+    <string name="recipe_types">Recipe types</string>
 </resources>

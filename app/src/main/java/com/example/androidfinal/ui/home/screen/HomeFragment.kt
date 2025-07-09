@@ -30,6 +30,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             val action = HomeFragmentDirections.actionHomeToCategory(it)
             findNavController().navigate(action)
         }
+        recipeAdapter.setOnItemClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToRecipeFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun bindObservers() {

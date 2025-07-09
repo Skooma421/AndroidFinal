@@ -11,6 +11,12 @@ import com.example.androidfinal.model.Recipe
 
 class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeDiffUtil()) {
 
+    private var onItemClick: ((Int) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Int) -> Unit) {
+        this.onItemClick = listener
+    }
+
     inner class RecipeViewHolder(
         private val binding: RecipeLayoutBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -25,6 +31,9 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(Recipe
                 itemTitle.text = model.name
                 difficulty.text = model.difficulty
                 rating.text = model.rating.toString()
+                root.setOnClickListener {
+                    onItemClick?.invoke(model.id ?: 1)
+                }
             }
         }
     }

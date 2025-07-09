@@ -14,8 +14,8 @@ import kotlinx.coroutines.launch
 
 class CategoryVm : ViewModel() {
 
-    private val _indianRecipes = MutableStateFlow<List<Recipe>>(emptyList())
-    val indianRecipes: SharedFlow<List<Recipe>> = _indianRecipes.asStateFlow()
+    private val _recipes = MutableStateFlow<List<Recipe>>(emptyList())
+    val recipes: SharedFlow<List<Recipe>> = _recipes.asStateFlow()
 
     private val _errorMessage = MutableSharedFlow<String>(replay = 0)
     val errorMessage: SharedFlow<String> = _errorMessage.asSharedFlow()
@@ -24,7 +24,7 @@ class CategoryVm : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = RetrofitClient.recipeApiService.getRecipesByTag(tag)
-                _indianRecipes.value = result.recipes
+                _recipes.value = result.recipes
             } catch (e: Exception) {
                 _errorMessage.emit("Error loading recipes: ${e.message}")
             }

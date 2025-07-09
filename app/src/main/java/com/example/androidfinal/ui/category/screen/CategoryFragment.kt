@@ -36,7 +36,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
     override fun bindObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                vm.indianRecipes.collect {
+                vm.recipes.collect {
                     menuAdapter.submitList(it)
                 }
             }

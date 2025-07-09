@@ -1,10 +1,8 @@
 package com.example.androidfinal.dataClass
 
-import com.squareup.moshi.Json
-
 data class RecipeResponse(
-    @Json(name = "recipes") val recipes: List<Recipe>,
-    @Json(name = "total") val total: Int,
-    @Json(name = "skip") val skip: Int,
-    @Json(name = "limit") val limit: Int
+    val recipes: List<Recipe>,
+    val total: Int,
+    val skip: Int,
+    val limit: Int
 )

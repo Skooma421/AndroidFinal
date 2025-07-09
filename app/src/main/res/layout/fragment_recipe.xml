@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.recipe.screen.RecipeFragment">
+    tools:context=".ui.recipe.screen.RecipeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -23,13 +23,6 @@
             app:contentScrim="#280050"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Meal name">
-
-            <ImageView
-                android:id="@+id/img_meal_detail"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -116,6 +109,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/img_meal_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:layout_anchor="@+id/appbar"
+        app:layout_anchorGravity="center"
+        app:layout_collapseMode="parallax" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

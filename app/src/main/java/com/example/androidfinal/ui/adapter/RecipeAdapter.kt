@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.androidfinal.databinding.RecipeLayoutBinding
 import com.example.androidfinal.model.Recipe
-import com.example.androidfinal.databinding.ItemRecipeCardBinding
 
-class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(MenuDiffUtil()) {
+class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeDiffUtil()) {
 
-    inner class MenuViewHolder(
-        private val binding: ItemRecipeCardBinding
+    inner class RecipeViewHolder(
+        private val binding: RecipeLayoutBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var model: Recipe
@@ -30,19 +30,19 @@ class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(MenuDiffUtil
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MenuViewHolder(
-        ItemRecipeCardBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = RecipeViewHolder(
+        RecipeLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
     )
 
-    override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.bind()
     }
 
-    class MenuDiffUtil : DiffUtil.ItemCallback<Recipe>() {
+    class RecipeDiffUtil : DiffUtil.ItemCallback<Recipe>() {
         override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
             return oldItem.id == newItem.id
         }

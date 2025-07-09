@@ -13,8 +13,9 @@
             android:id="@+id/home_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Home"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/home"
             android:textColor="#280050"
             android:textSize="36sp"
             android:textStyle="bold"
@@ -25,22 +26,19 @@
             android:id="@+id/would_like_to_eat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="What would you like to eat?"
-            android:textColor="@color/black"
+            android:layout_marginTop="35dp"
+            android:text="@string/what_would_you_like_to_eat"
+            android:textColor="#280050"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/home_text" />
+            app:layout_constraintStart_toStartOf="@id/home_text"
+            app:layout_constraintTop_toBottomOf="@+id/home_text" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/img_random_meal_card"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/would_like_to_eat">
@@ -57,7 +55,8 @@
             android:id="@+id/categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
             android:text="@string/categories"
             android:textColor="#280050"
             android:textSize="20sp"
@@ -69,7 +68,9 @@
             android:id="@+id/tagRecycler"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,9 +81,10 @@
             android:id="@+id/over_popular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:text="@string/recipe_types"
-            android:textColor="@color/black"
+            android:textColor="#280050"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +101,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/over_popular"
             app:spanCount="2" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/userPhoto"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/userImg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_pic" />
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

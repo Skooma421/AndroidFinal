@@ -1,4 +1,4 @@
-package com.example.androidfinal.ui.categories.indian.screen
+package com.example.androidfinal.ui.category.screen
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -6,24 +6,29 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.androidfinal.BaseFragment
 import com.example.androidfinal.R
-import com.example.androidfinal.databinding.FragmentIndianBinding
+import com.example.androidfinal.databinding.FragmentCategoryBinding
 import com.example.androidfinal.ui.adapter.MenuAdapter
-import com.example.androidfinal.ui.categories.indian.vm.IndianViewModel
+import com.example.androidfinal.ui.category.vm.CategoryVm
 import kotlinx.coroutines.launch
 
-class IndianFragment : BaseFragment<FragmentIndianBinding>(FragmentIndianBinding::inflate) {
+class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryBinding::inflate) {
 
-    private val vm: IndianViewModel by viewModels()
+    private val vm: CategoryVm by viewModels()
     private lateinit var menuAdapter: MenuAdapter
+    private val args: CategoryFragmentArgs by navArgs()
 
     override fun bindViewActionListener() {
+        val tag = args.tag
+        vm.loadRecipesByTag(tag)
         menuAdapter = MenuAdapter()
         with(binding) {
-            indianRecipes.adapter = menuAdapter
+            categoryRecycler.adapter = menuAdapter
+            titleTv.text = tag
             backArrow.setOnClickListener {
-                findNavController().navigate(R.id.action_spicy_to_menu)
+                findNavController().navigate(R.id.action_category_to_home)
             }
         }
     }

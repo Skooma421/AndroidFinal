@@ -11,8 +11,10 @@ import com.example.androidfinal.databinding.ItemRecipeCardBinding
 
 class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(PostsDiffUtil()) {
 
-    inner class MenuViewHolder(private val binding: ItemRecipeCardBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class MenuViewHolder(
+        private val binding: ItemRecipeCardBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+
         private lateinit var model: Recipe
 
         fun bind() {

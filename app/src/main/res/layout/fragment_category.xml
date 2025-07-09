@@ -5,7 +5,7 @@
     android:id="@+id/spicyFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.categories.indian.screen.IndianFragment">
+    tools:context=".ui.category.screen.CategoryFragment">
 
     <ImageView
         android:id="@+id/backArrow"
@@ -15,12 +15,12 @@
         android:contentDescription="@string/back"
         android:padding="8dp"
         android:src="@drawable/back_arrow"
-        app:layout_constraintBottom_toBottomOf="@id/tvSpicyHeader"
+        app:layout_constraintBottom_toBottomOf="@id/titleTv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvSpicyHeader" />
+        app:layout_constraintTop_toTopOf="@id/titleTv" />
 
     <TextView
-        android:id="@+id/tvSpicyHeader"
+        android:id="@+id/titleTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/indianRecipes"
+        android:id="@+id/categoryRecycler"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:clipToPadding="false"
@@ -45,7 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSpicyHeader"
+        app:layout_constraintTop_toBottomOf="@id/titleTv"
         tools:listitem="@layout/item_recipe_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,21 +40,22 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
             registerButton.setOnClickListener{
                 findNavController().navigate(R.id.action_login_to_register)
             }
+        }
+    }
 
-            viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
-                if (success == true) {
-                    showMessage("Login successful")
-                    findNavController().navigate(R.id.action_login_to_home)
-                }
-
+    override fun bindObservers() {
+        viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
+            if (success == true) {
+                showMessage("Login successful")
+                findNavController().navigate(R.id.action_login_to_home)
             }
 
-            viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
-                message?.let {
-                    showMessage(it)
-                }
-            }
+        }
 
+        viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+            message?.let {
+                showMessage(it)
+            }
         }
     }
 

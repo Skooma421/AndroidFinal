@@ -85,7 +85,11 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                 )
                 passwordRepeatField.setSelection(passwordRepeatField.text?.length ?: 0)
             }
+        }
+    }
 
+    override fun bindObservers() {
+        binding.apply {
             viewModel.registerSuccess.observe(viewLifecycleOwner) { success ->
                 registerButton.isEnabled = true
                 if (success == true) {

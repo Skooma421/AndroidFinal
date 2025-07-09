@@ -22,12 +22,14 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
         viewModel.loadUserMail()
 
-        viewModel.email.observe(viewLifecycleOwner) { email ->
-            binding.userEmail.text = email ?: "Unknown user"
-        }
-
         binding.logoutButton.setOnClickListener {
             viewModel.logout()
+        }
+    }
+
+    override fun bindObservers() {
+        viewModel.email.observe(viewLifecycleOwner) { email ->
+            binding.userEmail.text = email ?: "Unknown user"
         }
 
         viewModel.loggedOut.observe(viewLifecycleOwner) { isLoggedOut ->

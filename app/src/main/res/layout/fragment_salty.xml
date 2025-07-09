@@ -5,7 +5,7 @@
     android:id="@+id/spicyFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.categories.salty.screen.SaltyFragment">
+    tools:context=".ui.category.salty.screen.SaltyFragment">
 
     <ImageView
         android:id="@+id/backArrow"

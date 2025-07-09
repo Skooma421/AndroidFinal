@@ -29,8 +29,6 @@ class IndianFragment : BaseFragment<FragmentIndianBinding>(FragmentIndianBinding
     }
 
     override fun bindObservers() {
-        super.bindObservers()
-
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.indianRecipes.collect {

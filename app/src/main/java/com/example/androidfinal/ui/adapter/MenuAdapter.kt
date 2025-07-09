@@ -11,6 +11,12 @@ import com.example.androidfinal.databinding.ItemRecipeCardBinding
 
 class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(MenuDiffUtil()) {
 
+    private var onItemClick: ((Int) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (Int) -> Unit) {
+        this.onItemClick = listener
+    }
+
     inner class MenuViewHolder(
         private val binding: ItemRecipeCardBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -25,6 +31,9 @@ class MenuAdapter : ListAdapter<Recipe, MenuAdapter.MenuViewHolder>(MenuDiffUtil
                 itemTitle.text = model.name
                 difficulty.text = model.difficulty
                 rating.text = model.rating.toString()
+                root.setOnClickListener {
+                    onItemClick?.invoke(model.id!!)
+                }
             }
         }
     }

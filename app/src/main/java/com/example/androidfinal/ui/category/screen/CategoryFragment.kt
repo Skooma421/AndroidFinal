@@ -31,6 +31,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(FragmentCategoryB
                 findNavController().navigate(R.id.action_category_to_home)
             }
         }
+        menuAdapter.setOnItemClickListener {
+            val action = CategoryFragmentDirections.actionCategoryFragmentToRecipeFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun bindObservers() {

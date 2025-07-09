@@ -1,5 +1,6 @@
 package com.example.androidfinal.ui.recipe.screen
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -16,15 +17,23 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(FragmentRecipeBinding
     private val args: RecipeFragmentArgs by navArgs()
 
     override fun bindViewActionListener() {
-        val tag = args.id
-        vm.loadRecipesByTag(tag)
+        val id = args.id
+        vm.loadRecipesByTag(id)
     }
 
     override fun bindObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                vm.recipe.collect {
+                vm.recipe.collect { recipe ->
+                    // TODO(): Use data for recipe
+                }
+            }
+        }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                vm.errorMessage.collect {
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 }
             }
         }

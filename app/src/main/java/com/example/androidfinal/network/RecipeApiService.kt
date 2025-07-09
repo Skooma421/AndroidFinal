@@ -9,6 +9,9 @@ interface RecipeApiService {
     @GET("recipes")
     suspend fun getRecipes(): RecipeResponse
 
+    @GET("recipes/tags")
+    suspend fun getRecipeTags(): List<String>
+
     @GET("recipes/tag/{tag}")
     suspend fun getRecipesByTag(@Path("tag") tag: String): RecipeResponse
 

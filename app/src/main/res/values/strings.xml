@@ -11,8 +11,7 @@
     <string name="favRecipes">Favorite Recipes</string>
     <string name="card">card</string>
     <string name="test">test</string>
-    <string name="difficulty_easy">Difficulty: Easy</string>
-    <string name="_4_5">⭐ 4.5</string>
+
     <string name="title">Title</string>
     <string name="back">back</string>
     <string name="spicy">Spicy</string>
@@ -20,6 +19,11 @@
     <string name="view">View</string>
     <string name="user_email_example_com">user.email@example.com</string>
     <string name="profile">Profile</string>
+    <string name="_4_5">⭐ 4.5</string>
+    <string name="difficulty">Difficulty:</string>
+    <string name="salty_category">Salty Category</string>
+    <string name="spicy_category">Spicy Category</string>
+    <string name="sweet_category">Sweet Category</string>
 
 
 </resources>

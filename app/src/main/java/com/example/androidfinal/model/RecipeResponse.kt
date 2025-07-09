@@ -1,4 +1,4 @@
-package com.example.androidfinal.dataClass
+package com.example.androidfinal.model
 
 data class RecipeResponse(
     val recipes: List<Recipe>,

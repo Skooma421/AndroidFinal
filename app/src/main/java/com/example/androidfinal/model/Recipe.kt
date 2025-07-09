@@ -1,10 +1,10 @@
-package com.example.androidfinal.dataClass
+package com.example.androidfinal.model
 
 data class Recipe(
     val id: Int? = 1,
     val name: String? = "1",
-    val ingredients: List<String>? = listOf("coconut"),
-    val instructions: List<String>? = listOf("wyali"),
+    val ingredients: List<String>? = emptyList(),
+    val instructions: List<String>? = emptyList(),
     val prepTimeMinutes: Int? = 1,
     val cookTimeMinutes: Int? = 1,
     val servings: Int? = 1,
@@ -16,5 +16,5 @@ data class Recipe(
     val image: String? = "123123",
     val rating: Double? = 1.5,
     val reviewCount: Int? = 12,
-    val mealType: List<String>? = listOf("meat")
+    val mealType: List<String>? = emptyList()
 )

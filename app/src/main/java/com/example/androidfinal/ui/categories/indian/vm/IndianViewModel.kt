@@ -2,7 +2,7 @@ package com.example.androidfinal.ui.categories.indian.vm
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidfinal.dataClass.Recipe
+import com.example.androidfinal.model.Recipe
 import com.example.androidfinal.network.RetrofitClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

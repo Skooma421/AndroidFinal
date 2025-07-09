@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     tools:context=".UI.categories.spicy.screen.SpicyFragment">
 
-
     <ImageView
         android:id="@+id/ivBackArrow"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:contentDescription="@string/back"
         android:padding="8dp"
         android:src="@drawable/back_arrow"
         android:layout_marginStart="10dp"
@@ -26,7 +26,7 @@
         android:gravity="center"
         android:layout_marginTop="15dp"
         android:padding="16dp"
-        android:text="@string/sweet"
+        android:text="@string/sweet_category"
         android:textColor="#280050"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -35,9 +35,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSpicyRecipes"
+        android:id="@+id/rvSweetRecipes"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:clipToPadding="false"
@@ -47,4 +46,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSpicyHeader"
         tools:listitem="@layout/item_recipe_card" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

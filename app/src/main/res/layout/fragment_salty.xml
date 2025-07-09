@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spicyFragmentLayout"
@@ -12,38 +11,40 @@
         android:id="@+id/backArrow"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:contentDescription="back"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/back"
         android:padding="8dp"
         android:src="@drawable/back_arrow"
+        app:layout_constraintBottom_toBottomOf="@id/tvSaltyHeader"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvSaltyHeader"
-        app:layout_constraintBottom_toBottomOf="@id/tvSaltyHeader" />
+        app:layout_constraintTop_toTopOf="@id/tvSaltyHeader" />
 
     <TextView
         android:id="@+id/tvSaltyHeader"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salty"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="#280050"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:padding="16dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/backArrow"
+        android:text="@string/salty_category"
+        android:textColor="#280050"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/backArrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/backArrow" />
+        app:layout_constraintStart_toEndOf="@id/backArrow"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSpicyRecipes"
-        android:layout_width="0dp"
+        android:id="@+id/rvSaltyRecipes"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvSaltyHeader"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSaltyHeader"
         tools:listitem="@layout/item_recipe_card" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

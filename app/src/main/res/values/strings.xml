@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">AndroidFinal</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="repeat_password">Repeat Password</string>
     <string name="create_account">Create Account</string>
@@ -9,7 +8,7 @@
     <string name="email">Email</string>
     <string name="login">Log In</string>
     <string name="logout">Log Out</string>
-    <string name="favrecepies">Favorite Recipes</string>
+    <string name="favRecipes">Favorite Recipes</string>
     <string name="card">card</string>
     <string name="test">test</string>
     <string name="difficulty_easy">Difficulty: Easy</string>
@@ -18,4 +17,9 @@
     <string name="back">back</string>
     <string name="spicy">Spicy</string>
     <string name="sweet">Sweet</string>
+    <string name="view">View</string>
+    <string name="user_email_example_com">user.email@example.com</string>
+    <string name="profile">Profile</string>
+
+
 </resources>

@@ -23,8 +23,8 @@
         android:id="@+id/tvSaltyHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="15dp"
+        android:gravity="center"
         android:padding="16dp"
         android:text="@string/salty_category"
         android:textColor="#280050"
@@ -46,4 +46,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSaltyHeader"
         tools:listitem="@layout/item_recipe_card" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

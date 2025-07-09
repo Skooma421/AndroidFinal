@@ -4,24 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register_background"
-    tools:context=".UI.login.screen.LoginFragment">
+    android:background="@drawable/register_background">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
         android:alpha="0.2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/topDecor"
         android:layout_width="match_parent"
-        android:alpha="0"
         android:layout_height="125dp"
+        android:alpha="0"
         android:src="@drawable/img"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -112,14 +111,30 @@
         android:layout_marginTop="55dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
+        android:letterSpacing="0.05"
         android:text="@string/login"
         android:textColor="#4D017A"
-        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/passwordField"
         app:layout_constraintStart_toStartOf="@id/passwordField"
         app:layout_constraintTop_toBottomOf="@id/passwordField" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/registerButton"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#D7B8FF"
+        android:text="@string/register"
+        android:textColor="#4D017A"
+        android:letterSpacing="0.05"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/loginButton"
+        app:layout_constraintStart_toStartOf="@id/loginButton"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="299dp"

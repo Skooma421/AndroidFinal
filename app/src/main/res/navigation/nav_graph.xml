@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/registerFragment">
+    app:startDestination="@id/spicyFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.androidfinal.UI.home.screen.HomeFragment"
+        android:name="com.example.androidfinal.ui.home.screen.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.androidfinal.UI.menu.screen.MenuFragment"
+        android:name="com.example.androidfinal.ui.menu.screen.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -37,39 +37,48 @@
     </fragment>
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="com.example.androidfinal.UI.recipe.screen.RecipeFragment"
+        android:name="com.example.androidfinal.ui.recipe.screen.RecipeFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" />
     <fragment
         android:id="@+id/saltyFragment"
-        android:name="com.example.androidfinal.UI.categories.salty.screen.SaltyFragment"
+        android:name="com.example.androidfinal.ui.categories.salty.screen.SaltyFragment"
         android:label="fragment_salty"
         tools:layout="@layout/fragment_salty" >
         <action
             android:id="@+id/action_salty_to_recipe"
             app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_saltyFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/spicyFragment"
-        android:name="com.example.androidfinal.UI.categories.spicy.screen.SpicyFragment"
+        android:name="com.example.androidfinal.ui.categories.indian.screen.IndianFragment"
         android:label="fragment_spicy"
-        tools:layout="@layout/fragment_spicy" >
+        tools:layout="@layout/fragment_indian" >
         <action
             android:id="@+id/action_spicy_to_recipe"
             app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_spicy_to_menu"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/sweetFragment"
-        android:name="com.example.androidfinal.UI.categories.sweet.screen.SweetFragment"
+        android:name="com.example.androidfinal.ui.categories.sweet.screen.SweetFragment"
         android:label="fragment_sweet"
         tools:layout="@layout/fragment_sweet" >
         <action
             android:id="@+id/action_sweet_to_recipe"
             app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_sweetFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.androidfinal.UI.register.screen.RegisterFragment"
+        android:name="com.example.androidfinal.ui.register.screen.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -78,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.androidfinal.UI.login.screen.LoginFragment"
+        android:name="com.example.androidfinal.ui.login.screen.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -90,7 +99,11 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.androidfinal.UI.userProfile.screen.ProfileFragment"
+        android:name="com.example.androidfinal.ui.userProfile.screen.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profile_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

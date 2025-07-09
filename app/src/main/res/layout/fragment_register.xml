@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register_background"
-    tools:context=".UI.register.screen.RegisterFragment">
+    android:background="@drawable/register_background">
 
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -67,7 +66,7 @@
         android:layout_marginTop="65dp"
         android:background="@drawable/rounded_corners"
         android:elevation="7dp"
-        android:hint="Email"
+        android:hint="@string/email"
         android:letterSpacing="0.01"
         android:paddingStart="41dp"
         android:paddingTop="15dp"
@@ -160,7 +159,7 @@
         android:id="@+id/registerButton"
         android:layout_width="240dp"
         android:layout_height="55dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
         android:text="@string/register"
@@ -171,6 +170,22 @@
         app:layout_constraintEnd_toEndOf="@id/passwordRepeatField"
         app:layout_constraintStart_toStartOf="@id/passwordRepeatField"
         app:layout_constraintTop_toBottomOf="@id/passwordRepeatField" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginButton"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_rounded_corners"
+        android:backgroundTint="#D7B8FF"
+        android:text="@string/login"
+        android:textColor="#4D017A"
+        android:letterSpacing="0.05"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/registerButton"
+        app:layout_constraintStart_toStartOf="@id/registerButton"
+        app:layout_constraintTop_toBottomOf="@id/registerButton"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"

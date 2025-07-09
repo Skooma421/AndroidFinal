@@ -1,60 +1,65 @@
 package com.example.androidfinal.UI.login.screen
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.text.method.PasswordTransformationMethod
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.androidfinal.BaseFragment
 import com.example.androidfinal.R
+import com.example.androidfinal.UI.login.vm.LoginViewModel
+import com.example.androidfinal.databinding.FragmentLoginBinding
+import com.example.androidfinal.utils.SessionManager
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val viewModel: LoginViewModel by viewModels()
+    private lateinit var sessionManager: SessionManager
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun bindViewActionListener() {
+        sessionManager = SessionManager(requireContext())
+
+        binding.apply {
+            eyeIcon0.setOnClickListener {
+                passwordField.transformationMethod =
+                    if (passwordField.transformationMethod == null)
+                        PasswordTransformationMethod.getInstance()
+                    else null
+
+                eyeIcon0.setImageResource(
+                    if (passwordField.transformationMethod == null) R.drawable.closed_eye_icon else R.drawable.eye_icon
+                )
+                passwordField.setSelection(passwordField.text?.length ?: 0)
+            }
+
+            loginButton.setOnClickListener {
+                val email = emailField.text.toString().trim()
+                val password = passwordField.text.toString().trim()
+                viewModel.logic(email, password, sessionManager)
+            }
+
+            registerButton.setOnClickListener{
+                findNavController().navigate(R.id.action_login_to_register)
+            }
+
+            viewModel.loginSuccess.observe(viewLifecycleOwner) { success ->
+                if (success == true) {
+                    showMessage("Login successful")
+                    findNavController().navigate(R.id.action_login_to_home)
+                }
+
+            }
+
+            viewModel.errorMessage.observe(viewLifecycleOwner) { message ->
+                message?.let {
+                    showMessage(it)
+                }
+            }
+
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    private fun showMessage(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

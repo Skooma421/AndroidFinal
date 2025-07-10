@@ -33,4 +33,6 @@
     <string name="instructions">Instructions:</string>
     <string name="area_spain">Area: Spain</string>
     <string name="category_spicy">Category: Spicy</string>
+    <string name="recipe_image">recipe_image</string>
+    <string name="dashcook">DashCook</string>
 </resources>

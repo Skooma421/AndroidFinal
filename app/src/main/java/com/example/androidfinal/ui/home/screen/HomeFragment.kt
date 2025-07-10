@@ -7,7 +7,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.androidfinal.BaseFragment
 import com.example.androidfinal.databinding.FragmentHomeBinding
-import com.example.androidfinal.ui.adapter.MenuAdapter
 import com.example.androidfinal.ui.adapter.RecipeAdapter
 import com.example.androidfinal.ui.adapter.TagAdapter
 import com.example.androidfinal.ui.home.vm.HomeViewModel
@@ -26,6 +25,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             tagRecycler.adapter = tagAdapter
             recipeRecycler.adapter = recipeAdapter
         }
+
         tagAdapter.setOnItemClickListener {
             val action = HomeFragmentDirections.actionHomeToCategory(it)
             findNavController().navigate(action)
@@ -34,6 +34,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             val action = HomeFragmentDirections.actionHomeFragmentToRecipeFragment(it)
             findNavController().navigate(action)
         }
+        binding.userImg.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeToProfile()
+            findNavController().navigate(action)
+        }
+
     }
 
     override fun bindObservers() {

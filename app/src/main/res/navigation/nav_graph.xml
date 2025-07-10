@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/registerFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -11,24 +11,16 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_home_to_menu"
-            app:destination="@id/menuFragment" />
-        <action
             android:id="@+id/action_home_to_category"
             app:destination="@id/categoryFragment" />
         <action
             android:id="@+id/action_homeFragment_to_recipeFragment"
             app:destination="@id/recipeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.example.androidfinal.ui.menu.screen.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu">
         <action
-            android:id="@+id/action_menu_to_recipe"
-            app:destination="@id/recipeFragment" />
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profileFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/recipeFragment"
         android:name="com.example.androidfinal.ui.recipe.screen.RecipeFragment"

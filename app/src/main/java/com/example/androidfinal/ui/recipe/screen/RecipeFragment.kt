@@ -2,7 +2,6 @@ package com.example.androidfinal.ui.recipe.screen
 
 import android.annotation.SuppressLint
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -28,7 +27,6 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding>(FragmentRecipeBinding
             findNavController().popBackStack(R.id.homeFragment, inclusive = false)
         }
     }
-
 
     @SuppressLint("SetTextI18n")
     override fun bindObservers() {

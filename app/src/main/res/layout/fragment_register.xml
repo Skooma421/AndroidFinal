@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/register_background">
 
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/topDecor"
         android:layout_width="match_parent"
@@ -17,21 +16,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
         android:alpha="0.2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:elevation="15dp"
-        android:src="@drawable/arrow"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -162,9 +150,9 @@
         android:layout_marginTop="45dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
+        android:letterSpacing="0.05"
         android:text="@string/register"
         android:textColor="#4D017A"
-        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/passwordRepeatField"
@@ -178,14 +166,14 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
+        android:letterSpacing="0.05"
         android:text="@string/login"
         android:textColor="#4D017A"
-        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/registerButton"
         app:layout_constraintStart_toStartOf="@id/registerButton"
-        app:layout_constraintTop_toBottomOf="@id/registerButton"/>
+        app:layout_constraintTop_toBottomOf="@id/registerButton" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
@@ -196,6 +184,5 @@
         android:src="@drawable/img_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

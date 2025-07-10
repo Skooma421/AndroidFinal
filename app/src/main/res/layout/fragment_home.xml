@@ -38,16 +38,41 @@
             android:id="@+id/img_random_meal_card"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/would_like_to_eat">
 
             <ImageView
                 android:id="@+id/img_random_meal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#280050" />
+                android:background="#280050"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_new" />
+
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:shadowColor="@android:color/black"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:text="@string/dashcook"
+                android:textColor="@android:color/white"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.cardview.widget.CardView>
 
@@ -121,4 +146,5 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

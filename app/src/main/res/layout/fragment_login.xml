@@ -127,9 +127,9 @@
         android:layout_marginTop="35dp"
         android:background="@drawable/button_rounded_corners"
         android:backgroundTint="#D7B8FF"
+        android:letterSpacing="0.05"
         android:text="@string/register"
         android:textColor="#4D017A"
-        android:letterSpacing="0.05"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/loginButton"
@@ -144,4 +144,5 @@
         android:src="@drawable/img_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

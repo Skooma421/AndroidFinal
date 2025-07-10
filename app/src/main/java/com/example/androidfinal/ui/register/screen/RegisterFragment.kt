@@ -53,11 +53,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
                     sessionManager.setLoginStatus(true)
                 }
             }
-
-            arrow.setOnClickListener {
-                findNavController().navigate(R.id.action_register_to_login)
-            }
-
             loginButton.setOnClickListener{
                 findNavController().navigate(R.id.action_register_to_login)
             }
